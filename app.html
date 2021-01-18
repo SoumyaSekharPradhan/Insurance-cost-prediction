@@ -1,0 +1,225 @@
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title>Predict insurance cost</title>
+        
+        <style>
+            .jumbotron {
+                padding-top: 20px;
+                text-align: center;
+                margin-bottom: 0px;
+                }
+            .resizeInputForm {
+                width: 35%;
+                display: flex;
+                margin: 0 auto;
+                }
+            .footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #6666ff;
+                }
+            .profile {
+                color: black;
+                font-size: 20px
+                }
+            .profileImg {
+                height: 40px;
+            }
+            .bder-right {
+                border-right: 3px solid black;
+            }
+            .linkedIn:hover {
+                color: azure;
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+      
+      <div class="jumbotron">
+          <h1 class="display-4">Predict your <b>HEALTH INSURANCE COST</b> now!!!</h1>
+          <p class="lead">Go for the right <b>insurance</b> scheme!!!</p>
+          <hr class="my-4">
+          <p style="color: red;">* All fields are mandatory. Fill in the details to predict your Insurance Cost.</p>
+          <form id="reg_form">
+              <div class="form-group">
+                  <label for="age"><h5>Age</h5></label>
+                  <input type="" name="age" class="form-control resizeInputForm" id="age" placeholder="(Integer only) Ex: 20, 27, 34....">
+              </div>
+              <div class="form-group">
+                  <label for="bmi"><h5>BMI</h5>(Body Mass Index = weight(in kg) divided by square of height(in meter))</label>
+                  <input type="" name="bmi" class="form-control resizeInputForm" id="bmi" placeholder="(Upto 2 decimal places.) Ex: 18.34, 25.87....">
+              </div>
+              <div class="form-group">
+                  <label for="children"><h5>Number of children</h5></label>
+                  <input type="" name="children" class="form-control resizeInputForm" id="children" placeholder="(Integer only) Ex: 0, 1, 2, 3, 4....">
+              </div>
+              <div class="form-group">
+                  <label for="gender"><h5>Gender</h5></label>
+                  <br>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" required>
+                      <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" required>
+                      <label class="form-check-label" for="female">Female</label>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="is_smoker"><h5>Are you a smoker or drinker?</h5></label>
+                  <br>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="is_smoker" id="inlineRadio1" value="yes" required>
+                      <label class="form-check-label" for="yes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="is_smoker" id="inlineRadio1" value="no" required>
+                      <label class="form-check-label" for="No">No</label>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="location"><h5>Location</h5>(Please <a href="http://www.imdorissa.gov.in/" target="_blank">refer this map</a>.)</label>
+                  <br>
+                  <select class="custom-select resizeInputForm" id="location" required>
+                      <option selected>Choose your location.....</option>
+                      <option value="northinterior">North Interior Odisha</option>
+                      <option value="northcostal">North Costal Odisha</option>
+                      <option value="southinterior">South Interior Odisha</option>
+                      <option value="southcostal">South Costal Odisha</option>
+                  </select>
+              </div>
+              <button type="button" class="btn btn-success" onclick="onClickedEstimateCharge()">Estimate Charge</button>
+              <p></p>
+              <div class="form-group" id="result"></div>
+            </form>
+      </div>
+      
+      <div class="footer">
+          <div class="row">
+              <div class="col-6 bder-right">
+                  <h1>A Project By:</h1>
+                  <h4>Soumya Sekhar Pradhan</h4>
+                  <h4>118ID0414</h4>
+              </div>
+              <div class="col-6">
+                  <h1>Supervised By:</h1>
+                  <h4>Prof. B.B.V.L Deepak</h4>
+                  <h4>Dept. of Industrial Design, NITR</h4>
+              </div>
+          </div>
+          <div class="container mt-4 mb-4">
+              <h2 class="mb-3">Contact Information :</h2>
+              <div class="row">
+                  <div class="col-4 bder-right">
+                      <h5>Gmail:</h5>
+                      <span class="profile ml-2">soumyasekhar20</span>
+                  </div>
+                  <div class="col-4 bder-right">
+                      <h5>LinkedIn:</h5>
+                      <a href="https://www.linkedin.com/in/soumya-sekhar-pradhan-814786197/" target="_blank">
+                          <span class="profile ml-2 linkedIn">Soumya Sekhar Pradhan</span>
+                      </a>
+                  </div>
+                  <div class="col-4">
+                        <h5>WhatsApp:</h5>
+                        <span class="profile ml-2">+91 8338857911</span>
+                    </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <script>
+            
+            function getAge() {
+                var age = document.getElementById("age").value;
+                return age;
+            }
+            function getBmi() {
+                var bmi = document.getElementById("bmi").value;
+                return bmi;
+            }
+            function getChildren() {
+                var children = document.getElementById("children").value;
+                return children;
+            }
+            function getGender() {
+                var gender;
+                var ele = document.getElementsByName("gender");
+                for(var i=0; i<ele.length; i++) {
+                    if(ele[i].checked)
+                        gender = ele[i].value;
+                }
+                return gender;
+            }
+            function getSmoker() {
+                var is_smoker;
+                var ele = document.getElementsByName("is_smoker");
+                for(var i=0; i<ele.length; i++) {
+                    if(ele[i].checked)
+                        is_smoker = ele[i].value;
+                }
+                return is_smoker;
+            }
+
+
+            function getLocation() {
+                var loc = document.getElementById("location").value;
+                return loc;
+            }
+
+
+            function onClickedEstimateCharge() {
+                console.log("Estimate Charge button clicked.");
+                var age = getAge();
+                var bmi = getBmi();
+                var children = getChildren();
+                var gender = getGender();
+                var is_smoker = getSmoker();
+                var loc = getLocation();
+                var estCharge = document.getElementById("result");
+
+                // var url = "http://localhost:5000/predict_insurance_cost";
+                
+                var url = "http://127.0.0.1:5000/predict_insurance_cost";
+                
+                // var url = "/api/predict_insurance_cost";
+
+                console.log("url called");
+
+                $.post(url, {
+                    age: age,
+                    bmi: bmi,
+                    children: children,
+                    gender: gender,
+                    is_smoker: is_smoker,
+                    loc: loc
+                }, function(data, status) {
+                    console.log(data.estimated_charges);
+                    estCharge.innerHTML = "<h3>Your estimated Insurance charge is: </h3>" + "<h1>Rs. " + data.estimated_charges.toString() + "</h1>";
+                    console.log(status);
+                });
+            }
+            
+        </script>
+
+  </body>
+</html> 
